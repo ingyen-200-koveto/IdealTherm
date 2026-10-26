@@ -68,6 +68,9 @@ button{font:inherit;color:inherit}
 .menugomb{display:none;place-items:center;width:46px;height:46px;border:0;border-radius:12px;background:transparent;cursor:pointer}
 .menugomb:hover{background:var(--papir)}
 .menugomb .ikon{width:24px;height:24px}
+.hivasgomb{display:none;place-items:center;width:46px;height:46px;border-radius:12px;background:var(--hideg);color:#fff;text-decoration:none;box-shadow:0 8px 18px -10px var(--hideg);transition:background .15s}
+.hivasgomb:hover{background:var(--hideg-sotet)}
+.hivasgomb .ikon{width:22px;height:22px}
 
 .lap{display:none}
 .lap.aktiv{display:block}
@@ -121,7 +124,7 @@ button{font:inherit;color:inherit}
 
 .oldalfej{background:var(--lap);border-bottom:1px solid var(--vonal)}
 .oldalfej .keret{padding-block:34px 36px}
-.morzsa{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px;padding:0;list-style:none;font-size:13.5px;color:var(--halvany)}
+.morzsa{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:0 0 12px;padding:0;list-style:none;font-size:13.5px;color:var(--halvany)}
 .morzsa li+li::before{content:"/";margin-right:6px;color:var(--vonal)}
 .morzsa a{color:var(--halvany);text-decoration:none}
 .morzsa a:hover{color:var(--hideg);text-decoration:underline}
@@ -199,7 +202,8 @@ button{font:inherit;color:inherit}
 .mobilmenu nav a[aria-current="page"]{background:var(--hideg-hatter);color:var(--hideg-sotet)}
 .mobilmenu nav a .ikon{color:var(--halvany)}
 .mobilmenu .kapcs{display:grid;gap:10px;margin-top:auto;padding-top:20px;border-top:1px solid var(--vonal);font-size:15px}
-.mobilmenu .kapcs a{display:flex;align-items:center;gap:10px;color:var(--tinta);text-decoration:none;font-weight:650}
+.mobilmenu .kapcs{gap:2px}
+.mobilmenu .kapcs a{display:flex;align-items:center;gap:10px;min-height:44px;color:var(--tinta);text-decoration:none;font-weight:650}
 
 .suti{position:fixed;inset:0;z-index:90;display:grid;align-items:end;justify-items:center;padding:16px max(16px,env(safe-area-inset-right,0px)) calc(16px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));background:#12131699;overflow-y:auto}
 .suti-ablak{width:100%;max-width:560px;max-height:100%;overflow-y:auto;padding:26px 26px 22px;border-radius:20px;background:var(--lap);box-shadow:0 30px 70px -20px #0d1b2a99;animation:fel .3s ease}
@@ -230,10 +234,22 @@ button{font:inherit;color:inherit}
 .uzenet.lat{opacity:1;transform:translate(-50%,0)}
 
 @media (min-width:640px){.suti{align-items:center}.suti-gombok{grid-template-columns:1fr 1fr}.suti-gombok .gomb:first-child{grid-column:1 / -1}}
-@media (max-width:1060px){.fomenu{display:none}.menugomb{display:grid}}
+@media (max-width:1060px){.fomenu{display:none}.menugomb{display:grid}.hivasgomb{display:grid}}
+.szolg-tel a{display:inline-flex;align-items:center;min-height:44px}
+.elem b a{display:inline-flex;align-items:center;min-height:40px}
+.jelolo{padding-block:4px}
+.jelolo input{width:24px;height:24px}
+@media (max-width:1060px){
+  .felso .keret{padding-block:2px}
+  .felso a{min-height:36px}
+  .lablec ul{gap:2px}
+  .lablec a,.lablec button.link{display:inline-flex;align-items:center;min-height:40px}
+  .morzsa a{display:inline-block;padding-block:6px}
+  .elem small,.felirat{font-size:13px}
+}
 @media (max-width:900px){.hos{grid-template-columns:minmax(0,1fr);gap:36px;padding-block:44px 52px}.szolgaltatas{justify-self:stretch;max-width:none}.kategoriak{grid-template-columns:minmax(0,1fr)}.kapcsolat-racs{grid-template-columns:minmax(0,1fr)}.elerhetoseg{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}.lablec .keret{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:560px){.fejlec .keret{height:78px;gap:8px}.fejlec .marka .logo{height:62px}.kosargomb{padding:0 12px}.kosargomb .osszeg{display:none}.szekcio{padding-block:44px}.lablec .keret{grid-template-columns:1fr;gap:28px}.felso .elotag,.felso .jobb{display:none}.felso .keret{flex-wrap:nowrap;gap:16px}.ures{padding:36px 20px}.mezosor{grid-template-columns:minmax(0,1fr)}.urlap-kartya{padding:22px 18px}.szolgaltatas{padding:22px 20px}}
 @media (max-width:560px){.felso .keret{flex-wrap:wrap;gap:2px 16px}}
 @media (max-width:360px){.felso .keret{gap:2px 12px}}
-@media (max-width:360px){.fejlec .marka .logo{height:56px}.kosargomb{height:42px;padding:0 10px}.menugomb{width:42px;height:42px}.felirat{letter-spacing:.08em}}
+@media (max-width:360px){.fejlec .marka .logo{height:56px}.kosargomb{height:42px;padding:0 10px}.menugomb,.hivasgomb{width:42px;height:42px}.felirat{letter-spacing:.08em}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}

@@ -80,6 +80,12 @@
         $("span", h).textContent = cim;
       }
       if (tel) {
+        const h = $("#hivasGomb");
+        if (h) {
+          h.hidden = false;
+          h.href = telLink;
+          h.setAttribute("aria-label", "Hívás: " + tel);
+        }
         const sz = $("#szolgTel");
         if (sz) {
           sz.hidden = false;
@@ -301,6 +307,11 @@
     uzenet: ["#uUzenet", (v) => (v.length >= 5 ? "" : "Kérjük, írja meg röviden, miben segíthetünk.")],
   };
 
+  function odaGorget(el) {
+    const csendes = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    el.scrollIntoView({ block: "center", behavior: csendes ? "auto" : "smooth" });
+  }
+
   function mezoHiba(el, uz) {
     el.setAttribute("aria-invalid", uz ? "true" : "false");
     const h = $("#" + el.id + "Hiba");
@@ -347,7 +358,8 @@
       mezoHiba(adatEl, adatEl.checked ? "" : "Az elküldéshez kérjük, fogadja el az adatkezelési tájékoztatót.");
       if (!adatEl.checked && !elsoHibas) elsoHibas = adatEl;
       if (elsoHibas) {
-        elsoHibas.focus();
+        odaGorget(elsoHibas);
+        elsoHibas.focus({ preventScroll: true });
         return;
       }
       adat.mod = $("#uMod").value;
@@ -370,7 +382,8 @@
           adat.mod === "email" ? `Hamarosan válaszolunk a(z) ${adat.email} címre.` : `Hamarosan visszahívjuk a(z) ${adat.telefon} számon.`;
         urlap.hidden = true;
         $("#uSiker").hidden = false;
-        $("#uSiker").focus();
+        odaGorget($("#uSiker"));
+        $("#uSiker").focus({ preventScroll: true });
         urlap.reset();
         telefonCimke();
       } catch (err) {
@@ -380,6 +393,7 @@
         const h = $("#uHiba");
         h.innerHTML = esc(alap) + (elerheto ? ` Ha sürgős, keressen minket közvetlenül: ${elerheto}.` : "");
         h.hidden = false;
+        odaGorget(h);
       } finally {
         gomb.disabled = false;
         gomb.textContent = "KÜLDÉS";
