@@ -55,19 +55,43 @@
       }
     });
     if (tel || email) {
+      $("#felso").hidden = false;
+      if (tel) {
+        const a = $("#felsoTel");
+        a.hidden = false;
+        a.href = telLink;
+        $("span", a).innerHTML = `<span class="elotag">Hívjon minket: </span>${esc(tel)}`;
+      }
+      if (tel2) {
+        const a = $("#felsoTel2");
+        a.hidden = false;
+        a.href = telLink2;
+        $("span", a).textContent = tel2;
+      }
+      if (email) {
+        const a = $("#felsoEmail");
+        a.hidden = false;
+        a.href = "mailto:" + email;
+        $("span", a).textContent = email;
+      }
+      if (cim) {
+        const h = $("#felsoHely");
+        h.hidden = false;
+        $("span", h).textContent = cim;
+      }
       if (tel) {
         const h = $("#hivasGomb");
         if (h) {
           h.hidden = false;
           h.href = telLink;
           h.setAttribute("aria-label", "Hívás: " + tel);
-          $(".hivas-szam", h).textContent = tel;
         }
         const sz = $("#szolgTel");
         if (sz) {
           sz.hidden = false;
-          sz.href = telLink;
-          $("span", sz).textContent = tel;
+          const a = $("a", sz);
+          a.href = telLink;
+          a.textContent = tel;
         }
       }
       const k = $("#menuKapcs");
@@ -344,7 +368,7 @@
       adat.ido = Date.now() - urlapKezdet;
       const gomb = $("#uKuld");
       gomb.disabled = true;
-      gomb.textContent = "Küldés…";
+      gomb.textContent = "KÜLDÉS…";
       try {
         const r = await fetch("/api/uzenet", {
           method: "POST",
@@ -372,7 +396,7 @@
         odaGorget(h);
       } finally {
         gomb.disabled = false;
-        gomb.textContent = "Üzenet küldése";
+        gomb.textContent = "KÜLDÉS";
       }
     });
 
