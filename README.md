@@ -10,7 +10,7 @@ Az idealtherm.hu weboldal: klímák, hőszivattyúk és szellőztetéstechnika.
 - `kepek/` – logó
 - `szerver/uzenet.js` – a kapcsolat űrlap levélküldője
 - `telepites.sh`, `email-beallitas.sh` – telepítés és e-mail beállítás a VPS-en
-- `fonts/` – Plus Jakarta Sans betűtípus (OFL licenc)
+- `fonts/` – Bricolage Grotesque és Instrument Sans betűtípus (OFL licenc)
 
 ## Elérhetőségek
 

@@ -22,7 +22,8 @@
 ]}
 </script>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="preload" href="/fonts/jakarta.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="/fonts/bricolage-grotesque-latin-standard-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/instrument-sans-latin-standard-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/css/stilus.css">
 </head>
 <body>
@@ -52,15 +53,6 @@
 
 <a class="ugras" href="#tartalom">Ugrás a tartalomhoz</a>
 
-<div class="felso" id="felso" hidden>
-  <div class="keret">
-    <a id="felsoTel" href="#" hidden><svg class="ikon"><use href="#i-telefon"/></svg><span></span></a>
-    <a id="felsoTel2" href="#" hidden><svg class="ikon"><use href="#i-telefon"/></svg><span></span></a>
-    <a id="felsoEmail" href="#" hidden><svg class="ikon"><use href="#i-level"/></svg><span></span></a>
-    <span class="jobb" id="felsoHely" hidden><svg class="ikon"><use href="#i-hely"/></svg><span></span></span>
-  </div>
-</div>
-
 <header class="fejlec" id="fejlec">
   <div class="keret">
     <a class="marka" href="/" data-ut aria-label="Idealtherm, kezdőlap">
@@ -74,7 +66,7 @@
       <a href="/referenciak" data-ut>Referenciák</a>
       <a href="/kapcsolat" data-ut>Kapcsolat</a>
     </nav>
-    <a class="hivasgomb" id="hivasGomb" href="#" hidden aria-label="Hívás"><svg class="ikon"><use href="#i-telefon"/></svg></a>
+    <a class="hivasgomb" id="hivasGomb" href="#" hidden aria-label="Hívás"><svg class="ikon"><use href="#i-telefon"/></svg><span class="hivas-szam"></span></a>
     <a class="kosargomb" href="/kosar" data-ut aria-label="Kosár, 0 termék, 0 Ft">
       <span class="tart"><svg class="ikon"><use href="#i-kosar"/></svg><span class="db" id="kosarDb">0</span></span>
       <span class="osszeg" id="kosarOsszeg">0 Ft</span>
@@ -86,54 +78,62 @@
 <main id="tartalom" tabindex="-1">
 
 <section class="lap" data-lap="/" data-cim="">
-  <div class="fooldal-hos">
-    <div class="keret hos">
-      <div>
-        <span class="felirat"><span class="pontok" aria-hidden="true"><i></i><i></i></span><span>Idealtherm · Mosonmagyaróvár</span></span>
-        <h1>Víz-, <span class="szo-meleg">Fűtés</span>-, <span class="szo-hideg">Hűtés</span>-szerelés</h1>
-        <p class="lead">Légkondicionáló berendezések szerelése, telepítése, beüzemelése.</p>
-        <div class="gombsor">
-          <a class="gomb elso" href="/klimak" data-ut>Klímák megtekintése<svg class="ikon"><use href="#i-nyil"/></svg></a>
-          <a class="gomb masod" href="/kapcsolat" data-ut>Kapcsolat</a>
-        </div>
-      </div>
-      <div class="szolgaltatas">
-        <h2>Szolgáltatásaink</h2>
-        <ul class="szolg-lista">
-          <li><span class="jel"><svg class="ikon"><use href="#i-viz"/></svg></span>Vízszerelés</li>
-          <li><span class="jel meleg"><svg class="ikon"><use href="#i-futes"/></svg></span>Fűtésszerelés</li>
-          <li><span class="jel"><svg class="ikon"><use href="#i-hideg"/></svg></span>Hűtésszerelés</li>
-          <li><span class="jel"><svg class="ikon"><use href="#i-klima"/></svg></span>Légkondicionáló berendezések szerelése, telepítése, beüzemelése</li>
-        </ul>
-        <a class="gomb elso" href="/kapcsolat" data-ut>Ajánlatot kérek<svg class="ikon"><use href="#i-nyil"/></svg></a>
-        <p class="szolg-tel" id="szolgTel" hidden>Vagy hívjon minket: <a href="#"></a></p>
+  <div class="nyito keret">
+    <p class="hely">Mosonmagyaróvár és környéke</p>
+    <h1>Fűtés, hűtés, víz és klíma egy kézből.</h1>
+    <div class="nyito-also">
+      <p class="lead">Szereljük, telepítjük és beüzemeljük. Légkondicionálót, hőszivattyút, fűtési és vízrendszert, otthonba és irodába.</p>
+      <div class="gombsor">
+        <a class="gomb elso" href="/kapcsolat" data-ut>Ajánlatot kérek</a>
+        <a class="gomb masod" id="szolgTel" href="#" hidden><svg class="ikon"><use href="#i-telefon"/></svg><span></span></a>
       </div>
     </div>
   </div>
-  <div class="keret szekcio">
-    <div class="szekcio-fej">
-      <h2>Termékeink</h2>
-      <p>Minden kategóriában folyamatosan bővül a kínálat.</p>
+
+  <div class="savok" aria-label="Szolgáltatásaink">
+    <div class="sav meleg">
+      <div class="keret sav-belso">
+        <h2 class="sav-cim"><svg class="ikon"><use href="#i-meleg"/></svg>Melegre</h2>
+        <ul class="sav-lista">
+          <li><b>Fűtésszerelés</b><span>Fűtési rendszerek kiépítése, cseréje és javítása.</span></li>
+          <li><b>Vízszerelés</b><span>Víz- és lefolyóvezetékek szerelése otthonba és irodába.</span></li>
+          <li><a href="/hoszivattyuk" data-ut><b>Hőszivattyúk</b><span>Levegő-víz hőszivattyú a fűtéshez és a melegvízhez.</span></a></li>
+        </ul>
+      </div>
     </div>
-    <div class="kategoriak">
-      <a class="kat" href="/klimak" data-ut>
-        <span class="jel"><svg class="ikon"><use href="#i-klima"/></svg></span>
-        <h3>Klímák</h3>
-        <p>Oldalfali, multi split és mobil klímák hűtésre és fűtésre.</p>
-        <span class="tovabb">Megnézem<svg class="ikon"><use href="#i-nyil"/></svg></span>
-      </a>
-      <a class="kat" href="/hoszivattyuk" data-ut>
-        <span class="jel meleg"><svg class="ikon"><use href="#i-hoszivattyu"/></svg></span>
-        <h3>Hőszivattyúk</h3>
-        <p>Levegő-víz hőszivattyúk a gazdaságos fűtéshez és a melegvízhez.</p>
-        <span class="tovabb">Megnézem<svg class="ikon"><use href="#i-nyil"/></svg></span>
-      </a>
-      <a class="kat" href="/szelloztetes" data-ut>
-        <span class="jel"><svg class="ikon"><use href="#i-szelloztetes"/></svg></span>
-        <h3>Szellőztetéstechnika</h3>
-        <p>Hővisszanyerős szellőztetés a friss, tiszta levegőért.</p>
-        <span class="tovabb">Megnézem<svg class="ikon"><use href="#i-nyil"/></svg></span>
-      </a>
+    <div class="sav hideg">
+      <div class="keret sav-belso">
+        <h2 class="sav-cim"><svg class="ikon"><use href="#i-hideg"/></svg>Hidegre</h2>
+        <ul class="sav-lista">
+          <li><a href="/klimak" data-ut><b>Klímák</b><span>Oldalfali és multi split klímák szerelése, telepítése, beüzemelése.</span></a></li>
+          <li><b>Hűtésszerelés</b><span>Hűtőrendszerek kiépítése és javítása.</span></li>
+          <li><a href="/szelloztetes" data-ut><b>Szellőztetés</b><span>Hővisszanyerős szellőztetés a friss levegőért.</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="keret menet">
+    <h2>Így dolgozunk</h2>
+    <ol class="lepesek">
+      <li><b>Megkeres minket</b><span>Telefonon vagy az űrlapon leírja, mire van szüksége.</span></li>
+      <li><b>Felmérjük</b><span>Megnézzük a helyszínt, és kiválasztjuk a megfelelő berendezést.</span></li>
+      <li><b>Árajánlatot adunk</b><span>Pontos árat kap, mielőtt bármi elkezdődik.</span></li>
+      <li><b>Szerelünk és beüzemelünk</b><span>Telepítjük, beállítjuk, és megmutatjuk a használatát.</span></li>
+    </ol>
+  </div>
+
+  <div class="hivo">
+    <div class="keret hivo-belso">
+      <div>
+        <h2>Kérdése van? Hívjon minket.</h2>
+        <p>Mondja el, mire van szüksége, és ajánlatot adunk. Írni is lehet, hamarosan válaszolunk.</p>
+      </div>
+      <ul class="hivo-adatok">
+        <li data-adat="telefon"></li>
+        <li data-adat="email"></li>
+        <li data-adat="cim"></li>
+      </ul>
     </div>
   </div>
 </section>
@@ -234,7 +234,7 @@
             <span class="mezo-hiba" id="uAdatHiba"></span>
           </div>
           <p class="urlap-hiba" id="uHiba" role="alert" hidden></p>
-          <button class="gomb elso kuldes" type="submit" id="uKuld">KÜLDÉS</button>
+          <button class="gomb elso kuldes" type="submit" id="uKuld">Üzenet küldése</button>
         </form>
         <div class="urlap-siker" id="uSiker" tabindex="-1" hidden>
           <span class="pipa"><svg class="ikon"><use href="#i-pipa"/></svg></span>
